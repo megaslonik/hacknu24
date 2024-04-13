@@ -6,10 +6,15 @@ import "react-toastify/dist/ReactToastify.css";
 import "./LoginPage.css";
 // import { ReactComponent as Logo } from "../assets/logo.svg";
 
-const LoginPage = () => {
+const LoginPage = ({setIsLoggedIn}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    navigate("/main");
+  }
 
 //   const handleLogin = async () => {
 //     try {
@@ -62,7 +67,7 @@ const LoginPage = () => {
             />
           </label>
         </div>
-        <button className="login-button"/* onClick={handleLogin}*/>
+        <button className="login-button" onClick={handleLogin}>
           Login
         </button>
       </div>
